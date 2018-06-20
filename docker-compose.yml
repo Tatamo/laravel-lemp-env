@@ -4,8 +4,14 @@ services:
         image: nginx:alpine
         ports:
             - "80:80"
+        depends_on:
+            - php
         volumes:
             - ./default.conf:/etc/nginx/conf.d/default.conf
             - ./html:/var/www/html
         environment:
             - NGINX_PORT=80
+    php:
+        image: php:7.2.6-fpm-alpine
+        volumes:
+            - ./html:/var/www/html
