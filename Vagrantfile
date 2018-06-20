@@ -67,4 +67,8 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+
+  # install vagrant-docker-compose plugin to use docker-compose as provisioner
+  # $ vagrant plugin install vagrant-docker-compose
+  config.vm.provision "docker"
 end
