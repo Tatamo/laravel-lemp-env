@@ -74,5 +74,5 @@ Vagrant.configure("2") do |config|
   # install vagrant-docker-compose plugin to use docker-compose as provisioner
   # $ vagrant plugin install vagrant-docker-compose
   config.vm.provision :docker
-  config.vm.provision :docker_compose, run: "always", yml: ["/vagrant/docker-compose.yml", "/vagrant/docker-compose.dev.yml"]
+  config.vm.provision :docker_compose, run: "always", yml: "/vagrant/docker-compose.yml"
 end
