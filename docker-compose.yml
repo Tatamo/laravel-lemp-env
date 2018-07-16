@@ -20,6 +20,7 @@ services:
             - MYSQL_DATABASE=database
     php:
         image: php:7.2.7-fpm-alpine
+        user: ${PHP_USER}
         depends_on:
             - db
         volumes:
