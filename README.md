@@ -1,5 +1,5 @@
-# lemp-env
-LEMP development environment on Docker on Vagrant
+# laravel-lemp-env
+Laravel development environment on LEMP on Docker on Vagrant
 
 ## on Vagrant
 ### Requirement
