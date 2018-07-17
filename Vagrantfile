@@ -73,7 +73,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :docker
   # vagrant-docker-compose provisioning runs in /home/vagrant and needs an access to .env file
-  config.vm.provision "shell", inline: "ln -s /vagrant/.env /home/vagrant"
+  config.vm.provision "shell", inline: "ln -sf /vagrant/.env /home/vagrant"
   # install vagrant-docker-compose plugin to use docker-compose as provisioner in host
   # $ vagrant plugin install vagrant-docker-compose
   config.vm.provision :docker_compose, run: "always", yml: "/vagrant/docker-compose.yml"

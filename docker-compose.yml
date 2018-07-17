@@ -16,8 +16,8 @@ services:
         volumes:
             - db-data:/var/lib/mysql
         environment:
-            - MYSQL_ROOT_PASSWORD=0000
             - MYSQL_DATABASE=database
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     php:
         image: php:7.2.7-fpm-alpine
         user: ${PHP_USER}
@@ -27,7 +27,7 @@ services:
             - ./laravel:/var/www/laravel:z
         environment:
             - DATABASE_HOST=db
-            - MYSQL_ROOT_PASSWORD=0000
+            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         depends_on:
@@ -37,7 +37,10 @@ services:
         environment:
             - PMA_HOST=db
     workspace:
-        build: containers/workspace/
+        build:
+            context: containers/workspace/
+            args:
+                - NODE_VERSION=${NODE_VERSION-stable}
         tty: true
         volumes:
             - ./laravel:/var/www/laravel:z
