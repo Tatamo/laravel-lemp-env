@@ -17,5 +17,10 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.s
     . $HOME/.bashrc && \
     nvm install $NODE_VERSION && \
     nvm use $NODE_VERSION && \
-    npm install -g npm
+    npm install -g npm && \
+    ln -s `npm bin --global` $HOME/.npm-bin
+
+# Make it so the node modules can be executed with 'docker-compose exec'
+# /root/.nvm is symbolic link into npm bin directory
+ENV PATH $PATH:/root/.npm-bin
 

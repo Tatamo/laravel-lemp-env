@@ -48,8 +48,7 @@ each command is executed in laravel/ directory.
 $ docker-compose exec workspace composer install
 
 # npm install
-# .bashrc needs to be loaded, so current work-around here:
-$ docker-compose exec workspace bash --login -c "npm install"
+$ docker-compose exec workspace npm install
 ```
 
 or run bash
