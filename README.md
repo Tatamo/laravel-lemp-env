@@ -34,7 +34,7 @@ $ docker-compose exec workspace bash -c "cd ../ && mv laravel/.gitkeep . && comp
 after setting up, now you can access Laravel app http://localhost:8080/ and phpMyAdmin http://localhost:8081/ .
 
 use `workspace` container to run composer and npm.
-each command is executed in laravel/ directory.
+each command is executed in `laravel/` directory.
 ```
 # composer install
 $ docker-compose exec workspace composer install
@@ -54,7 +54,7 @@ instead of `docker-compose up`, run:
 $ vagrant up
 ```
 
-and you can run docker-compose exec command in VM.
+and you can run `docker-compose exec` command in the VM.
 the project directory is mounted as `/vagrant`.
 ```
 $ vagrant ssh
